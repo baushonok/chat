@@ -1,0 +1,6 @@
+<form (submit)="sendMessage(message)">
+  <input type="text" name="newMessage" [(ngModel)]="message" />
+  <button type="submit" [disabled]="!message.length">
+    Send
+  </button>
+</form>

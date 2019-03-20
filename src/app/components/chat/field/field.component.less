@@ -1,0 +1,21 @@
+:host {
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+
+form {
+  display: grid;
+  grid-template-columns: auto max(auto, 100px);
+  grid-column-gap: 8px;
+  input[name="newMessage"] {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    height: 24px;
+    border-radius: 0;
+  }
+  button[type="submit"] {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    max-width: 100px;
+  }
+}

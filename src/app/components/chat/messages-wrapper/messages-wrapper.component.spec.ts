@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MessagesWrapperComponent } from './messages-wrapper.component';
+import { MessageComponent } from './message/message.component';
 
 describe('MessagesWrapperComponent', () => {
   let component: MessagesWrapperComponent;
@@ -8,7 +9,10 @@ describe('MessagesWrapperComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MessagesWrapperComponent ]
+      declarations: [
+        MessagesWrapperComponent,
+        MessageComponent,
+      ]
     })
     .compileComponents();
   }));
@@ -19,7 +23,10 @@ describe('MessagesWrapperComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create MessagesWrapperComponent', () => {
     expect(component).toBeTruthy();
   });
+  it('should have empty array as data by default', () => {
+    expect(component.data).toEqual([]);
+  })
 });

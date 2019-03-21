@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { WebsocketService} from './services/websocket.service';
-import { ChatService } from './services/chat.service';
+import { ChatService } from './components/chat/chat.service';
 import { ChatModule } from './components/chat/chat.module';
 
 @NgModule({

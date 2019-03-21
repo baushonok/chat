@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgModel, NgForm } from '@angular/forms';
-import { ChatService } from '../../../services/chat.service';
-import { Message } from '../../../interfaces/message.interface';
+import { ChatService } from '../chat.service';
+import Message from '../../../interfaces/message.interface';
 
 @Component({
   selector: 'app-field',

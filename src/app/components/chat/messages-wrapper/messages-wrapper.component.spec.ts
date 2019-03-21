@@ -23,10 +23,12 @@ describe('MessagesWrapperComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create MessagesWrapperComponent', () => {
-    expect(component).toBeTruthy();
+  describe('initialization', () => {
+    it('should create MessagesWrapperComponent', () => {
+      expect(component).toBeTruthy();
+    });
+    it('should have empty array as data', () => {
+      expect(component.data).toEqual([]);
+    });
   });
-  it('should have empty array as data by default', () => {
-    expect(component.data).toEqual([]);
-  })
 });

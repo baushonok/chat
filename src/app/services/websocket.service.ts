@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject, Observable, Observer } from 'rxjs';
 import { webSocket } from 'rxjs/webSocket';
-import { Message } from '../interfaces/message.interface';
+import Message from '../interfaces/message.interface';
 
 @Injectable({
   providedIn: 'root'

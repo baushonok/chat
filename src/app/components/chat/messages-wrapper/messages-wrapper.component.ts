@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ChatService } from '../../../services/chat.service';
 import { Message } from '../../../interfaces/message.interface';
 
 @Component({
@@ -8,19 +9,13 @@ import { Message } from '../../../interfaces/message.interface';
 })
 export class MessagesWrapperComponent implements OnInit {
   public data: Message[] = [];
+
+  constructor(private chatService: ChatService) {
+  }
+
   public ngOnInit(): void {
-    this.data = [
-      {
-        id: '1',
-        data: 'Hi!',
-        timestamp: Date.now(),
-        isMine: true
-      },
-      {
-        id: '2',
-        data: 'Hello!',
-        timestamp: Date.now()
-      },
-    ];
+    this.chatService.message.subscribe(msg => {
+      this.data.push(msg);
+    });
   }
 }

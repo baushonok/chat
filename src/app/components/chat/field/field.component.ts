@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NgModel } from '@angular/forms';
+import { NgModel, NgForm } from '@angular/forms';
+import { ChatService } from '../../../services/chat.service';
+import { Message } from '../../../interfaces/message.interface';
 
 @Component({
   selector: 'app-field',
@@ -9,9 +11,19 @@ import { NgModel } from '@angular/forms';
 export class FieldComponent implements OnInit {
   public message: string = '';
 
+  constructor(private chatService: ChatService) {}
+
   public ngOnInit(): void {
   }
-  public sendMessage(message: string): void {
-    console.log(message)
+  public sendMessage(event: Event, form: NgForm, message: string): void {
+    event.preventDefault();
+    if (form.invalid) {
+      return;
+    }
+    this.chatService.message.next(<Message> {
+      data: message,
+      timestamp: Date.now()
+    });
+    this.message = '';
   }
 }

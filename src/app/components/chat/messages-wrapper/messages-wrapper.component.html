@@ -1,1 +1,5 @@
-<app-message *ngFor="let message of data" [data]="message"></app-message>
+<ul>
+  <li *ngFor="let message of data">
+    <app-message [data]="message"></app-message>
+  </li>
+</ul>

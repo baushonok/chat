@@ -7,7 +7,7 @@ import { Message } from '../../../../interfaces/message.interface';
   styleUrls: ['./message.component.less']
 })
 export class MessageComponent implements OnInit {
-  @Input() public data: Message;
+  @Input() public data: Message = {} as Message;
   constructor() { }
 
   public ngOnInit(): void {

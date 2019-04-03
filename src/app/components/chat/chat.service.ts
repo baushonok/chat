@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Observable, BehaviorSubject, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 
@@ -10,12 +10,13 @@ import { environment } from '../../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class ChatService {
+export class ChatService implements OnInit {
   public message: BehaviorSubject<Message> = new BehaviorSubject<Message>({} as Message);
 
-  constructor(private wsService: WebsocketService) {
-    this.message = <BehaviorSubject<Message>>wsService
-                  .connect(environment.CHAT_URL);
+  constructor(private wsService: WebsocketService) {}
+  public ngOnInit(): void {
+    this.message = this.wsService
+                  .connect(environment.CHAT_URL) as BehaviorSubject<Message>;
   }
   public getOtherPersonInfo(): Observable<Author> {
     return of({

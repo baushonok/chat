@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  CHAT_URL: 'ws://localhost:4200/'
+  baseUrl: 'http://localhost:4200',
+  CHAT_URL: 'ws://localhost:4200/',
+  authUrl: 'http://localhost:3500/login'
 };
 
 /*

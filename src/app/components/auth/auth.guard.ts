@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService } from './auth.service';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class AuthGuard {
     if (this.auth.authenticated) {
       return true;
     }
-    this.router.navigateByUrl('/auth');
+    this.router.navigateByUrl(environment.authUrl);
     return false;
   }
 }

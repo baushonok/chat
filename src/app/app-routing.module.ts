@@ -6,6 +6,7 @@ import { AuthGuardService } from './components/auth/auth.guard.service';
 import { ChatComponent } from './components/chat/chat.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'chat', pathMatch: 'full' },
   { path: 'login', component: AuthComponent },
   { path: 'chat', component: ChatComponent, canActivate: [AuthGuardService] },
   { path: '**', redirectTo: 'login' }

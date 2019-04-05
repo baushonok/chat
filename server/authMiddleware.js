@@ -8,7 +8,13 @@ module.exports = function (req, res, next) {
   if (req.url == "/login" && req.method == "POST") {
     if (req.body != null && req.body.name == USERNAME
         && req.body.password == PASSWORD) {
-          let token = jwt.sign({ data: USERNAME, expiresIn: "1h" }, APP_SECRET);
+          const payload = {
+            data: USERNAME
+          };
+          const signOptions = {
+            expiresIn: "12h"
+          };
+          let token = jwt.sign(payload, APP_SECRET, signOptions);
           res.json({ success: true, token: token });
     } else {
       res.json({ success: false });
@@ -16,6 +22,6 @@ module.exports = function (req, res, next) {
     res.end();
     return;
   }
-  
+
   next();
 }

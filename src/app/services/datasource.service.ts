@@ -10,15 +10,12 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class DatasourceService {
-  public authToken: string;
-  constructor(private httpClient: HttpClient) {
-    this.authToken = null;
-  }
+  constructor(private httpClient: HttpClient) {}
   public authenticate(name: string, password: string): Observable<boolean> {
-    return this.httpClient.post<AuthResponse>(`${environment.authUrl}`, { name, password })
+    return this.httpClient.post<AuthResponse>(`${environment.loginUrl}`, { name, password })
       .pipe(
         map(response => {
-          this.authToken = response.token ? response.token : null;
+          localStorage.setItem('token', response.token ? response.token : null);
           return response.success;
         })
     );

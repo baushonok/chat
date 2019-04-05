@@ -6,7 +6,8 @@ export const environment = {
   production: false,
   baseUrl: 'http://localhost:4200/',
   chatUrl: 'chat',
-  authUrl: 'http://localhost:3500/login',
+  authUrl: 'login',
+  loginUrl: 'http://localhost:3500/login',
   CHAT_URL: 'ws://localhost:4200/'
 };
 

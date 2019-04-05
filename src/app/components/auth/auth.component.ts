@@ -26,9 +26,9 @@ export class AuthComponent {
       return;
     }
     this.auth.authenticate(this.username, this.password)
-      .subscribe(response => {
-        if (response.success) {
-          this.router.navigateByUrl(environment.baseUrl);
+      .subscribe(isSucceed => {
+        if (isSucceed) {
+          this.router.navigateByUrl(environment.chatUrl);
         } else {
           this.errorMessage = 'Authentication failed';
         }
